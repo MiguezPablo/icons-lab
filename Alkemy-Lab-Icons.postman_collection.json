@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "592b6454-7b3c-4a43-ac29-a480f3e275a0",
+		"name": "Alkemy-Lab-Icons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "continentes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\":\"/usr/tmp/img2.jpg\",\r\n    \"denominacion\": \"Europa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/continentes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"continentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "continentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/continentes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"continentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"imagen\":\"/usr/tmp/pais2.jpg\",\r\n   \"denominacion\":\"Argentina101\",\r\n   \"cantidadHabitantes\":1000,\r\n   \"superficie\":900001,\r\n   \"continente\": {\r\n            \"id\":5,\r\n            \"imagen\": \"/usr/tmp/img2.jpg\",\r\n            \"denominacion\": \"Europa\"\r\n        },\r\n   \"icons\":[\r\n      {\r\n         \"imagen\":\"/usr/tmp/CCC.jpg\",\r\n         \"denominacion\":\"Obelisco101\",\r\n         \"fechaCreacion\":\"2021-09-28\",\r\n         \"altura\":511,\r\n         \"historia\":\"Monumento mas importante de la cuidad de buenos aires\"\r\n      }\r\n   ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/paises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises/basic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises?filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons?date=2021-09-28&order=DESC&cities=2,4&name=Obelisco102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-09-28"
+						},
+						{
+							"key": "order",
+							"value": "DESC"
+						},
+						{
+							"key": "cities",
+							"value": "2,4"
+						},
+						{
+							"key": "name",
+							"value": "Obelisco102"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises/id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"imagen\": \"lalla.jpg\",\r\n        \"denominacion\": \"Argentina\",\r\n        \"cantidadHabitantes\": 400,\r\n        \"superficie\": 2000,\r\n        \"continente\": {\r\n            \"id\": 3,\r\n            \"imagen\": \"/usr/tmp/img2.jpg\",\r\n            \"denominacion\": \"Europa\"\r\n        },\r\n        \"icons\": []\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/paises/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paises",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paises/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/paises/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"paises",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/CCC.jpg\",\r\n    \"denominacion\": \"Obelisco102\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 401,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/icons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons?filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons?date=2021-09-28&order=DESC&cities=2,4&name=Obelisco102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-09-28"
+						},
+						{
+							"key": "order",
+							"value": "DESC"
+						},
+						{
+							"key": "cities",
+							"value": "2,4"
+						},
+						{
+							"key": "name",
+							"value": "Obelisco102"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/icons/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/pais2.jpg\",\r\n    \"denominacion\": \"Monumental222\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 500,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/icons/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/id/pais/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/icons/1/pais/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"1",
+						"pais",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "icons/id/pais/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/icons/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"icons",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
