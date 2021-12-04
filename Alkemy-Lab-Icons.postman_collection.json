@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"imagen\":\"/usr/tmp/pais2.jpg\",\r\n   \"denominacion\":\"Argentina101\",\r\n   \"cantidadHabitantes\":1000,\r\n   \"superficie\":900001,\r\n   \"continente\": {\r\n            \"id\":5,\r\n            \"imagen\": \"/usr/tmp/img2.jpg\",\r\n            \"denominacion\": \"Europa\"\r\n        },\r\n   \"icons\":[\r\n      {\r\n         \"imagen\":\"/usr/tmp/CCC.jpg\",\r\n         \"denominacion\":\"Obelisco101\",\r\n         \"fechaCreacion\":\"2021-09-28\",\r\n         \"altura\":511,\r\n         \"historia\":\"Monumento mas importante de la cuidad de buenos aires\"\r\n      }\r\n   ]",
+					"raw": "{\r\n   \"imagen\":\"/usr/tmp/paisArg.jpg\",\r\n   \"denominacion\":\"Argentina\",\r\n   \"cantidadHabitantes\":400000000,\r\n   \"superficie\":900001,\r\n   \"continenteId\":1,\r\n   \"icons\":[\r\n      {\r\n         \"imagen\":\"/usr/tmp/CCC.jpg\",\r\n         \"denominacion\":\"Obelisco\",\r\n         \"fechaCreacion\":\"2021-11-28\",\r\n         \"altura\":511,\r\n         \"historia\":\"Monumento mas importante de la cuidad de buenos aires\"\r\n      }\r\n   ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -105,14 +105,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/paises",
+					"raw": "http://localhost:8080/paises/basic",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"paises"
+						"paises",
+						"basic"
 					]
 				}
 			},
@@ -124,7 +125,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/icons?date=2021-09-28&order=DESC&cities=2,4&name=Obelisco102",
+					"raw": "http://localhost:8080/icons?order=DESC&continent=1&name=Argentina",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -135,20 +136,16 @@
 					],
 					"query": [
 						{
-							"key": "date",
-							"value": "2021-09-28"
-						},
-						{
 							"key": "order",
 							"value": "DESC"
 						},
 						{
-							"key": "cities",
-							"value": "2,4"
+							"key": "continent",
+							"value": "1"
 						},
 						{
 							"key": "name",
-							"value": "Obelisco102"
+							"value": "Argentina"
 						}
 					]
 				}
@@ -211,7 +208,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"imagen\": \"/usr/tmp/CCC.jpg\",\r\n    \"denominacion\": \"Obelisco102\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 401,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/Obel.jpg\",\r\n    \"denominacion\": \"Obelisco\",\r\n    \"fechaCreacion\": \"2021-11-28\",\r\n    \"altura\": 401,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -238,7 +235,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/icons/4",
+					"raw": "http://localhost:8080/icons/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -246,26 +243,27 @@
 					"port": "8080",
 					"path": [
 						"icons",
-						"4"
+						"2"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "icons",
+			"name": "icons/basic",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/icons",
+					"raw": "http://localhost:8080/icons/basic",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"icons"
+						"icons",
+						"basic"
 					]
 				}
 			},
@@ -292,12 +290,12 @@
 			"response": []
 		},
 		{
-			"name": "icons?filters",
+			"name": "icons filters",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/icons?date=2021-09-28&order=DESC&cities=2,4&name=Obelisco102",
+					"raw": "http://localhost:8080/icons?date=2021-11-28&order=DESC&cities=2,4&name=Obelisco",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -309,7 +307,7 @@
 					"query": [
 						{
 							"key": "date",
-							"value": "2021-09-28"
+							"value": "2021-11-28"
 						},
 						{
 							"key": "order",
@@ -321,7 +319,7 @@
 						},
 						{
 							"key": "name",
-							"value": "Obelisco102"
+							"value": "Obelisco"
 						}
 					]
 				}
@@ -355,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"imagen\": \"/usr/tmp/pais2.jpg\",\r\n    \"denominacion\": \"Monumental222\",\r\n    \"fechaCreacion\": \"2021-09-28\",\r\n    \"altura\": 500,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
+					"raw": "{\r\n    \"imagen\": \"/usr/tmp/pais2.jpg\",\r\n    \"denominacion\": \"Monumental\",\r\n    \"fechaCreacion\": \"2021-11-28\",\r\n    \"altura\": 600,\r\n    \"historia\": \"Monumento mas importante de la cuidad de buenos aires\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -363,7 +361,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/icons/4",
+					"raw": "http://localhost:8080/icons/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -371,14 +369,14 @@
 					"port": "8080",
 					"path": [
 						"icons",
-						"4"
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "icons/id/pais/id",
+			"name": "/paises/id/icon/id",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -392,16 +390,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/icons/1/pais/1",
+					"raw": "http://localhost:8080/paises/3/icon/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"icons",
-						"1",
-						"pais",
+						"paises",
+						"3",
+						"icon",
 						"1"
 					]
 				}
@@ -409,7 +407,7 @@
 			"response": []
 		},
 		{
-			"name": "icons/id/pais/id",
+			"name": "/paises/id/icon/id",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -423,15 +421,73 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/icons/id",
+					"raw": "http://localhost:8080/paises/5/icon/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"icons",
-						"id"
+						"paises",
+						"5",
+						"icon",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "singup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\":\"pablo@gmail.com\",\r\n   \"password\":\"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "singin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\":\"pablo@gmail.com\",\r\n   \"password\":\"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signin"
 					]
 				}
 			},
