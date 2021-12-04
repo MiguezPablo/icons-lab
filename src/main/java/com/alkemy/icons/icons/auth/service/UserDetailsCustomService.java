@@ -27,6 +27,10 @@ public class UserDetailsCustomService implements UserDetailsService {
     private EmailService emailService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private JwtUtils jwtUtils;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -53,4 +57,21 @@ public class UserDetailsCustomService implements UserDetailsService {
         return userEntity != null;
     }
 
+    public String tokenSignIn(AuthenticationRequest authRequest) throws Exception {
+        UserDetails userDetails;
+        try {
+            Authentication auth = this.authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            authRequest.getUsername(),
+                            authRequest.getPassword()
+                    )
+            );
+            userDetails = (UserDetails) auth.getPrincipal();
+        } catch (BadCredentialsException e) {
+            throw new Exception("Incorrect username or password", e);
+        }
+
+        final String jwt = this.jwtUtils.generateToken(userDetails);
+        return jwt;
+    }
 }
