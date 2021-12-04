@@ -13,13 +13,11 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("paises")
+@RequestMapping("/paises")
 public class PaisController {
 
-    private PaisService paisService;
-
     @Autowired
-    public PaisController(PaisService paisService) {this.paisService = paisService;}
+    private PaisService paisService;
 
     @GetMapping
     public ResponseEntity<List<PaisDTO>> getAll() {
@@ -44,9 +42,9 @@ public class PaisController {
     }
 
     @PostMapping
-    public ResponseEntity<PaisDTO> save(@RequestBody PaisDTO pais) {
-        PaisDTO paisDTO = this.paisService.save(pais);
-        return ResponseEntity.ok().body(paisDTO);
+    public ResponseEntity<PaisDTO> save(@RequestBody PaisDTO paisDTO) {
+        PaisDTO finalPaisDTO = this.paisService.save(paisDTO);
+        return ResponseEntity.ok().body(finalPaisDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -59,5 +57,17 @@ public class PaisController {
     public ResponseEntity<PaisDTO> update(@PathVariable Long id, @RequestBody PaisDTO paisDTO) {
         PaisDTO result = this.paisService.updatePais(id, paisDTO);
         return ResponseEntity.ok().body(result);
+    }
+
+    @PostMapping("/{id}/icon/{idIcon}")
+    public ResponseEntity<Void> addPais(@PathVariable Long id, @PathVariable Long idIcon) {
+        this.paisService.addIcon(id, idIcon);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @DeleteMapping("/{id}/icon/{idIcon}")
+    public ResponseEntity<Void> removePais(@PathVariable Long id, @PathVariable Long idIcon) {
+        this.paisService.removeIcon(id, idIcon);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

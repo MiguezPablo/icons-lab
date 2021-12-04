@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("continentes")
+@RequestMapping("/continentes")
 public class ContinenteController {
 
     @Autowired

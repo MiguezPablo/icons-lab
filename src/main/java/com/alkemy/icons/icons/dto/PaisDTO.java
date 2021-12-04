@@ -14,7 +14,6 @@ public class PaisDTO {
     private String denominacion;
     private Long cantidadHabitantes;
     private Long superficie;
-    //private Long continenteId;
-    private Continente continente;
+    private Long continenteId;
     private List<IconDTO> icons;
 }

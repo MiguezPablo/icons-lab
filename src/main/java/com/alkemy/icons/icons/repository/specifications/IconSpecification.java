@@ -35,7 +35,6 @@ public class IconSpecification {
             }
 
             if (StringUtils.hasLength(filtersDTO.getDate())) {
-                // TODO: Reuse this in a function
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate date = LocalDate.parse(filtersDTO.getDate(), formatter);
 

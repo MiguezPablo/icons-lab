@@ -39,11 +39,5 @@ public class Icon {
     @ManyToMany(mappedBy = "icons", cascade = CascadeType.ALL)
     private List<Pais> paises = new ArrayList<>();
 
-    public void addPais(Pais pais) {
-        this.paises.add(pais);
-    }
 
-    public void removePais(Pais pais) {
-        this.paises.remove(pais);
-    }
 }

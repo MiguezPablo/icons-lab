@@ -13,15 +13,14 @@ import java.util.List;
 @Service
 public class ContinenteServiceImpl implements ContinenteService {
 
+    @Autowired
     private ContinenteRepository continenteRepository;
+    @Autowired
     private ContinenteMapper continenteMapper;
 
-    @Autowired
-    public ContinenteServiceImpl(ContinenteRepository continenteRepository, ContinenteMapper continenteMapper) {
-        this.continenteRepository = continenteRepository;
-        this.continenteMapper = continenteMapper;
-    }
 
+
+    @Override
     public ContinenteDTO save(ContinenteDTO dto){
         Continente entity = continenteMapper.continenteDTO2Entity(dto);
         Continente entitySaved = continenteRepository.save(entity);
@@ -29,6 +28,7 @@ public class ContinenteServiceImpl implements ContinenteService {
         return result;
     }
 
+    @Override
     public List<ContinenteDTO> getAllContinentes() {
         List<Continente> entities = continenteRepository.findAll();
         List<ContinenteDTO> result = continenteMapper.continenteEntityList2DTOList(entities);

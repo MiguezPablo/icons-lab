@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContinenteRepository extends JpaRepository<Continente, Long> {
+
 }

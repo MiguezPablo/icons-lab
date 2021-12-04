@@ -22,9 +22,5 @@ public interface IconService {
 
     IconDTO update(Long id, IconDTO icon);
 
-    void addPais(Long id, Long idPais);
-
-    void removePais(Long id, Long idPais);
-
     void delete(Long id);
 }

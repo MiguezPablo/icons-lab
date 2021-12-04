@@ -6,7 +6,6 @@ import com.alkemy.icons.icons.entity.Icon;
 import com.alkemy.icons.icons.entity.Pais;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
-import org.springframework.util.NumberUtils;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.criteria.Expression;

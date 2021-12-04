@@ -1,6 +1,6 @@
 package com.alkemy.icons.icons.mapper;
 
-import com.alkemy.icons.icons.dto.IconBasicDTO;
+
 import com.alkemy.icons.icons.dto.IconDTO;
 import com.alkemy.icons.icons.dto.PaisBasicDTO;
 import com.alkemy.icons.icons.dto.PaisDTO;
@@ -8,7 +8,6 @@ import com.alkemy.icons.icons.entity.Continente;
 import com.alkemy.icons.icons.entity.Icon;
 import com.alkemy.icons.icons.entity.Pais;
 import com.alkemy.icons.icons.repository.ContinenteRepository;
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,15 +23,17 @@ public class PaisMapper {
     private IconMapper iconMapper;
     @Autowired
     private ContinenteMapper continenteMapper;
+    @Autowired
+    private ContinenteRepository continenteRepository;
 
     public Pais paisDTO2Entity(PaisDTO dto) {
+        Continente conti = continenteRepository.findById(dto.getContinenteId()).orElseThrow();
         Pais entity = new Pais();
         entity.setImagen(dto.getImagen());
         entity.setDenominacion(dto.getDenominacion());
         entity.setCantidadHabitantes(dto.getCantidadHabitantes());
-        // TODO revisar
-        entity.setContinente(dto.getContinente());
         entity.setSuperficie(dto.getSuperficie());
+        entity.setContinente(conti);
         Set<Icon> icons = this.iconMapper.iconDTOList2Entity(dto.getIcons());
         entity.setIcons(icons);
         return entity;
@@ -44,7 +45,7 @@ public class PaisMapper {
         dto.setImagen(entity.getImagen());
         dto.setDenominacion(entity.getDenominacion());
         dto.setCantidadHabitantes(entity.getCantidadHabitantes());
-        dto.setContinente(entity.getContinente());
+        dto.setContinenteId(entity.getContinente().getId());
         dto.setSuperficie(entity.getSuperficie());
         if(loadIcons) {
             List<IconDTO> iconDTOS = this.iconMapper.iconEntitySet2DTOList(entity.getIcons(), false);
@@ -66,7 +67,8 @@ public class PaisMapper {
         entity.setDenominacion(paisDTO.getDenominacion());
         entity.setCantidadHabitantes(paisDTO.getCantidadHabitantes());
         entity.setSuperficie(paisDTO.getSuperficie());
-        entity.setContinente(paisDTO.getContinente());
+        Continente conti = continenteRepository.getById(paisDTO.getContinenteId());
+        entity.setContinente(conti);
         Set<Icon> icons = this.iconMapper.iconDTOList2Entity(paisDTO.getIcons());
         entity.setIcons(icons);
     }

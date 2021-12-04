@@ -12,17 +12,13 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("icons")
+@RequestMapping("/icons")
 public class IconController {
 
+    @Autowired
     private IconService iconService;
 
-    @Autowired
-    public IconController(IconService iconService) {
-        this.iconService = iconService;
-    }
-
-    @GetMapping
+    @GetMapping("/basic")
     public ResponseEntity<List<IconBasicDTO>> getAll() {
         List<IconBasicDTO> icons = this.iconService.getAll();
         return ResponseEntity.ok(icons);
@@ -41,7 +37,7 @@ public class IconController {
         return ResponseEntity.ok(icon);
     }
 
-    @GetMapping("/filter")
+    @GetMapping
     public ResponseEntity<List<IconDTO>> getDetailsByFilters(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String date,
@@ -70,15 +66,5 @@ public class IconController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @PostMapping("/{id}/pais/{idPais}")
-    public ResponseEntity<Void> addPais(@PathVariable Long id, @PathVariable Long idPais) {
-        this.iconService.addPais(id, idPais);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
 
-    @DeleteMapping("/{id}/pais/{idPais}")
-    public ResponseEntity<Void> removePais(@PathVariable Long id, @PathVariable Long idPais) {
-        this.iconService.removePais(id, idPais);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
 }

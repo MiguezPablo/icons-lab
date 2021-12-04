@@ -27,10 +27,10 @@ public class Pais {
     @Column(name = "cant_habitantes")
     private Long cantidadHabitantes;
 
-    private Long superficie; // m2
+    private Long superficie;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "continente_id", insertable = false, updatable = false, nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER) //cascade = CascadeType.ALL
+    @JoinColumn(name = "continente_id")//, insertable = false, updatable = false)// nullable = false
     private Continente continente;
 
 
@@ -45,7 +45,13 @@ public class Pais {
             inverseJoinColumns = @JoinColumn(name = "icon_id"))
     private Set<Icon> icons = new HashSet<>();
 
-
     private boolean deleted = Boolean.FALSE;
 
+    public void addIcon(Icon icon) {
+        this.icons.add(icon);
+    }
+
+    public void removeIcon(Icon icon) {
+        this.icons.remove(icon);
+    }
 }
